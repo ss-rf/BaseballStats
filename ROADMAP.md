@@ -70,7 +70,7 @@ BaseballStats/
 - [ ] VS Code をインストールし、Python 拡張を入れる
 - [ ] Node.js（LTS 版）をインストールし、`node -v` で確認する
 - [ ] GitHub アカウントを作り、Sourcetree にアカウントを登録する
-- [ ] GitHub にリポジトリ `BaseballStats` を作り（**Public**）、Sourcetree でクローンする
+- [ ] GitHub に空のリポジトリ `BaseballStats` を作り（**Public**）、ローカルのフォルダにリモート `origin` として登録する
 - [ ] Python の仮想環境（venv）を作って有効化する
 - [ ] `.gitignore` を作る（venv、`node_modules` などを除外する）
 - [ ] README.md と ROADMAP.md を最初のコミットとして push する
