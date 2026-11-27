@@ -36,17 +36,18 @@ def parse_batting(html: str) -> list[dict]:
 
     return rows
 
-
-
 def save_csv(rows: list[dict], path: str) -> None:
-    """リストを CSV に保存する"""
+    # 全部の行から列名を集める（出てきた順番のまま、重複なし）
+    fieldnames = []
+    for row in rows:
+        for key in row:
+            if key not in fieldnames:          # ① まだ入っていなければ
+                fieldnames.append(key)         # ② 後ろに追加
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-
     with open(path, "w", newline="", encoding="utf-8-sig") as f:
-
-        writer = csv.DictWriter(f, fieldnames=rows[0].keys())
-        writer.writeheader()    # 1行目に見出しを書く
-        writer.writerows(rows)  # 全員分をまとめて書く
+        writer = csv.DictWriter(f, fieldnames=fieldnames)   # ③
+        writer.writeheader()
+        writer.writerows(rows)
 
 if __name__ == "__main__":
     html = fetch_html("https://npb.jp/bis/2025/stats/bat_c.html")
